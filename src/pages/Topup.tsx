@@ -4,6 +4,7 @@ import UserInfo from "../components/UserInfo";
 import Button from "../components/Button";
 import NominalCard from "../components/NominalCard";
 import { FormEvent, useState } from "react";
+import Notification from "../components/Notification";
 
 function Topup() {
   const [nominal, setNominal] = useState<number | undefined>(undefined);
@@ -16,6 +17,8 @@ function Topup() {
 
   // const [showPopup, setShowPopup] = useState(false);
 
+  const [notification, setNotification] = useState(false);
+
   const handleTopup = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -25,7 +28,10 @@ function Topup() {
       );
       return;
     }
+
+    setNotification(true);
   };
+
   // Allow only numbers and set nominal
   const handleNominalChange = (value: string) => {
     const numericValue = value.replace(/\D/g, "");
@@ -72,6 +78,13 @@ function Topup() {
           </form>
         </div>
       </div>
+
+      {notification && (
+        <Notification
+          amount={nominal}
+          onCancel={() => setNotification(false)}
+        />
+      )}
     </>
   );
 }

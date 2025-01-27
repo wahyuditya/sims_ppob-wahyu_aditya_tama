@@ -24,14 +24,18 @@ function Home() {
         const profileResponse = await axios.get(
           "https://take-home-test-api.nutech-integrasi.com/profile",
           {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+            },
           }
         );
 
         const balanceResponse = await axios.get(
           "https://take-home-test-api.nutech-integrasi.com/balance",
           {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+            },
           }
         );
 
@@ -47,7 +51,9 @@ function Home() {
         const bannerResponse = await axios.get(
           "https://take-home-test-api.nutech-integrasi.com/banner",
           {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+            },
           }
         );
 
