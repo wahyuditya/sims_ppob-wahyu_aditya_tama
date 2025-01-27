@@ -3,9 +3,9 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import { FiAtSign, FiEye, FiEyeOff, FiLock, FiX } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/slices/authSlice";
+import axios from "axios";
 
 function Login() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);

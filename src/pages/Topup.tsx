@@ -3,20 +3,18 @@ import Input from "../components/Input";
 import UserInfo from "../components/UserInfo";
 import Button from "../components/Button";
 import NominalCard from "../components/NominalCard";
-import { FormEvent, FormEventHandler, useState } from "react";
-import axios from "axios";
-import Popup from "../components/Popup";
+import { FormEvent, useState } from "react";
 
 function Topup() {
   const [nominal, setNominal] = useState<number | undefined>(undefined);
   const [nominalError, setNominalError] = useState("");
 
-  const [errorMsg, setErrorMsg] = useState("");
-  const [successMsg, setSuccessMsg] = useState("");
+  // const [errorMsg, setErrorMsg] = useState("");
+  // const [successMsg, setSuccessMsg] = useState("");
 
-  const [isConfirming, setIsConfirming] = useState(false);
+  // const [isConfirming, setIsConfirming] = useState(false);
 
-  const [showPopup, setShowPopup] = useState(false);
+  // const [showPopup, setShowPopup] = useState(false);
 
   const handleTopup = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
