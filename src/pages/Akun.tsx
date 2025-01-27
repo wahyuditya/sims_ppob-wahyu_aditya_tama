@@ -24,7 +24,7 @@ function Akun() {
         <div className="flex justify-center items-center flex-col gap-[8px]">
           <div className="relative inline-block">
             <img
-              src="src/assets/images/Profile%20Photo.png"
+              src="images/Profile-Photo.png"
               alt="Profile"
               className="w-36 h-36 rounded-full"
             />

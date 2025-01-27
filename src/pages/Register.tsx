@@ -267,7 +267,7 @@ function Register() {
         <div className="w-[55%]">
           <img
             className="h-[850px] w-full object-cover"
-            src="src/assets/images/illustrasi%20Login.png"
+            src="/images/illustrasi-Login.png"
             alt="Login Illustration"
           />
         </div>
