@@ -148,7 +148,7 @@ function Login() {
         <div className="w-[55%]">
           <img
             className="h-[100vh] w-full object-cover"
-            src="/images/illustrasi Login.png"
+            src="/images/illustrasi%20Login.png"
             alt="Login Illustration"
           />
         </div>
