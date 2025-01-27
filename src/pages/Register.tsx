@@ -138,7 +138,7 @@ function Register() {
       <div className="flex h-[100vh] ">
         <div className="flex flex-col justify-center px-[100px] w-[45%] gap-[40px]  h-[850px]">
           <div className="flex items-center w-full justify-center gap-[8px]">
-            <img src="src/assets/images/Logo.png" alt="" />
+            <img src="/images/Logo.png" alt="" />
             <h1 className="font-extrabold">SIMS PPOB</h1>
           </div>
           <p className="font-extrabold text-[40px]/[48px] text-center">

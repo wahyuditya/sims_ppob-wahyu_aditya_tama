@@ -14,7 +14,7 @@ function Header() {
       <div className="flex w-full justify-center items-center border-b-1 border-gray-300 px-[100px] h-[80px]">
         <div className="w-full">
           <Link to="/" className="flex w-full items-center gap-[8px]">
-            <img src="src/assets/images/Logo.png" alt="" />
+            <img src="/images/Logo.png" alt="" />
             <h1 className="font-extrabold">SIMS PPOB</h1>
           </Link>
         </div>
