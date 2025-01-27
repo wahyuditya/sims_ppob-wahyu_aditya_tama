@@ -11,12 +11,6 @@ function Transaction() {
           <p className="text-[20px] font-bold">Semua Transaksi</p>
 
           <TransactionHistory />
-          <TransactionHistory />
-          <TransactionHistory />
-
-          <p className="mb-[100px] cursor-pointer text-center text-[#F42619] hover:text-[#f42819f3] text-[16px] font-bold">
-            Show more
-          </p>
         </div>
       </div>
     </>
