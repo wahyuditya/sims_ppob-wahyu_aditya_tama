@@ -11,68 +11,69 @@ interface Transaction {
 }
 
 function transactionHistory() {
-  const [limit, setLimit] = useState(2);
-  const [offset, setOffset] = useState(0);
+  // const [limit, setLimit] = useState(2);
+  // const [offset, setOffset] = useState(0);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  // const fetchTransactionHistory = async (limit: number, offset: number) => {
-  //   try {
-  //     const transactionHistoryResponse = await axios(
-  //       "https://take-home-test-api.nutech-integrasi.com/transaction/history",
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-  //         },
-  //         params: {
-  //           limit: 2,
-  //           offset: 0,
-  //         },
-  //       }
-  //     );
+  const fetchTransactionHistory = async () => {
+    try {
+      const transactionHistoryResponse = await axios(
+        "https://take-home-test-api.nutech-integrasi.com/transaction/history",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+          },
+          params: {
+            limit: 2,
+            offset: 0,
+          },
+        }
+      );
 
-  //     const transactionHistoryResponseData =
-  //       transactionHistoryResponse.data.data.records;
-  //     console.log(transactionHistoryResponseData);
+      const transactionHistoryResponseData =
+        transactionHistoryResponse.data.data.records;
+      console.log(transactionHistoryResponseData);
 
-  //     setTransactions((prevTransactions) => [
-  //       ...prevTransactions,
-  //       ...transactionHistoryResponseData,
-  //     ]);
-  //   } catch (error: any) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchTransactionHistory(limit, 0);
-  // }, []);
+      setTransactions((prevTransactions) => [
+        ...prevTransactions,
+        ...transactionHistoryResponseData,
+      ]);
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    const fetchTransactionHistory = async () => {
-      try {
-        const transactionHistoryResponse = await axios(
-          "https://take-home-test-api.nutech-integrasi.com/transaction/history",
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-            },
-            params: {
-              limit: 5,
-              offset: 0,
-            },
-          }
-        );
-
-        const transactionHistoryResponseData =
-          transactionHistoryResponse.data.data.records;
-        console.log(transactionHistoryResponseData);
-      } catch (e: any) {
-        console.log("error");
-      }
-    };
-
     fetchTransactionHistory();
   }, []);
+
+  // useEffect(() => {
+  //   console.log("useeffecct");
+  //   const fetchTransactionHistory = async () => {
+  //     try {
+  //       const transactionHistoryResponse = await axios(
+  //         "https://take-home-test-api.nutech-integrasi.com/transaction/history",
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+  //           },
+  //           params: {
+  //             limit: 5,
+  //             offset: 0,
+  //           },
+  //         }
+  //       );
+
+  //       const transactionHistoryResponseData =
+  //         transactionHistoryResponse.data.data.records;
+  //       console.log(transactionHistoryResponseData);
+  //     } catch (e: any) {
+  //       console.log("error");
+  //     }
+  //   };
+
+  //   fetchTransactionHistory();
+  // }, []);
 
   return (
     <>
