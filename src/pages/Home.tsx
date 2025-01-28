@@ -8,7 +8,7 @@ import { setServices } from "../redux/slices/servicesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { setBanners } from "../redux/slices/bannerSlice";
-import Pembayaran from "./Pembayaran";
+
 import { useNavigate } from "react-router-dom";
 import { setSelectedService } from "../redux/slices/selectedServiceSlice";
 
