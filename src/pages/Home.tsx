@@ -8,9 +8,13 @@ import { setServices } from "../redux/slices/servicesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { setBanners } from "../redux/slices/bannerSlice";
+import Pembayaran from "./Pembayaran";
+import { useNavigate } from "react-router-dom";
+import { setSelectedService } from "../redux/slices/selectedServiceSlice";
 
 function Home() {
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -96,7 +100,7 @@ function Home() {
     return (
       <div className="flex justify-center items-center h-screen">
         <svg
-          className="animate-spin h-5 w-5 ml-3 text-white"
+          className="animate-spin h-5 w-5 ml-3 text-[#F42619]"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -119,17 +123,44 @@ function Home() {
     );
   }
 
+  const handlePayment = (
+    serviceCode: string,
+    serviceName: string,
+    serviceIcon: string,
+    serviceTarif: number
+  ) => {
+    dispatch(
+      setSelectedService({
+        service_code: serviceCode,
+        service_name: serviceName,
+        service_icon: serviceIcon,
+        service_tariff: serviceTarif,
+      })
+    );
+
+    navigate("/pembayaran");
+  };
+
   return (
     <>
       <div className=" flex px-[100px] flex-col gap-[68px] my-[20px]">
         <UserInfo />
 
-        <div className="flex flex-row gap-[8px] w-full">
+        <div className="flex flex-row gap-[8px] w-full cursor-pointer">
           {services.map((service, index) => (
             <Services
               key={index}
+              service_code={service.service_code}
               service_name={service.service_name}
               service_icon={service.service_icon}
+              onClick={() =>
+                handlePayment(
+                  service.service_code,
+                  service.service_name,
+                  service.service_icon,
+                  service.service_tariff
+                )
+              }
             />
           ))}
         </div>

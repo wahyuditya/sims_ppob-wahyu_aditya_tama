@@ -12,6 +12,7 @@ import PublicRoute from "./routes/PublicRoutes";
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+import Pembayaran from "./pages/Pembayaran";
 
 function App() {
   return (
@@ -58,6 +59,16 @@ function App() {
                   <ProtectedRoute>
                     <Header />
                     <Transaction />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/pembayaran"
+                element={
+                  <ProtectedRoute>
+                    <Header />
+                    <Pembayaran />
                   </ProtectedRoute>
                 }
               />

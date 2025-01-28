@@ -6,6 +6,7 @@ import { FaRegUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/slices/authSlice";
+import { persistor } from "../redux/store";
 
 function Akun() {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ function Akun() {
 
   const handleLogout = () => {
     localStorage.removeItem("jwtToken");
+    persistor.purge();
     dispatch(logout());
 
     navigate("/login");

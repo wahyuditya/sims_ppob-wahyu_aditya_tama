@@ -5,9 +5,16 @@ import { useNavigate } from "react-router-dom";
 interface notificationProps {
   onCancel?: () => void;
   amount: number | undefined;
+  service_name?: string | undefined;
+  service_code?: string | undefined;
 }
 
-function Notification({ onCancel, amount }: notificationProps) {
+function Notification({
+  onCancel,
+  amount,
+  service_name,
+  service_code,
+}: notificationProps) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -37,6 +44,30 @@ function Notification({ onCancel, amount }: notificationProps) {
     }
   };
 
+  const handleBayar = async () => {
+    try {
+      const paymentResponse = await axios.post(
+        "https://take-home-test-api.nutech-integrasi.com/transaction",
+        {
+          service_code: service_code,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+          },
+        }
+      );
+
+      if (paymentResponse.status == 200) {
+        setSuccess(true);
+      } else {
+        setError(false);
+      }
+    } catch (e: any) {
+      console.log(e);
+    }
+  };
+
   const handleClose = () => {
     setError(false);
     setSuccess(false);
@@ -52,15 +83,31 @@ function Notification({ onCancel, amount }: notificationProps) {
     <div className=" w-[300px] h-[300px]fit bg-white p-[34px] rounded-sm flex flex-col justify-center items-center gap-[22px]">
       <img className="w-[50px]" src="/images/Logo.png" alt="" />
       <div className="gap-[4px] flex flex-col justify-center items-center">
-        <p className="text-[16px]">Anda yakin untuk Top Up sebesar</p>
+        {service_name ? (
+          <p className="text-[16px]">Beli {service_name} senilai</p>
+        ) : (
+          <p className="text-[16px]">Anda yakin untuk Top Up sebesar</p>
+        )}
+
         <p className="font-extrabold text-[20px]">{IdrAmount} ?</p>
       </div>
-      <button
-        className="font-bold text-[#F42619] cursor-pointer"
-        onClick={handleTopup}
-      >
-        Ya, lanjutkan Topup
-      </button>
+
+      {service_name ? (
+        <button
+          className="font-bold text-[#F42619] cursor-pointer"
+          onClick={handleBayar}
+        >
+          Ya, lanjutkan Bayar
+        </button>
+      ) : (
+        <button
+          className="font-bold text-[#F42619] cursor-pointer"
+          onClick={handleTopup}
+        >
+          Ya, lanjutkan Topup
+        </button>
+      )}
+
       <button
         className="font-bold text-gray-400 cursor-pointer"
         onClick={onCancel}
@@ -74,8 +121,13 @@ function Notification({ onCancel, amount }: notificationProps) {
     <div className=" w-[300px] h-[300px] bg-white p-[34px] rounded-sm flex flex-col justify-center items-center gap-[22px]">
       <img className="w-[50px]" src="/images/Check.png" alt="" />
       <div className="gap-[4px] flex flex-col justify-center items-center">
-        <p className="text-[16px]">Top Up sebesar</p>
-        <p className="font-extrabold text-[20px]">{IdrAmount} ?</p>
+        {service_name ? (
+          <p className="text-[16px]">Pembayaran {service_name} sebesar</p>
+        ) : (
+          <p className="text-[16px]">Top Up sebesar</p>
+        )}
+
+        <p className="font-extrabold text-[20px]">{IdrAmount}</p>
         <p className="text-[16px]">Berhasil!</p>
       </div>
       <button
@@ -91,7 +143,12 @@ function Notification({ onCancel, amount }: notificationProps) {
     <div className=" w-[300px] h-[300px] bg-white p-[34px] rounded-sm flex flex-col justify-center items-center gap-[22px]">
       <img className="w-[50px]" src="/images/Failed.png" alt="" />
       <div className="gap-[4px] flex flex-col justify-center items-center">
-        <p className="text-[16px]">Top Up sebesar</p>
+        {service_name ? (
+          <p className="text-[16px]">Pembayaran {service_name} sebesar</p>
+        ) : (
+          <p className="text-[16px]">Top Up sebesar</p>
+        )}
+
         <p className="font-extrabold text-[20px]">{IdrAmount}</p>
         <p className="text-[16px]">Gagal</p>
       </div>

@@ -13,7 +13,7 @@ interface Transaction {
 function transactionHistory() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  const [limit, setLimit] = useState(5);
+  const limit = 5;
   const [offset, setOffset] = useState(0);
 
   const fetchTransactionHistory = async () => {
