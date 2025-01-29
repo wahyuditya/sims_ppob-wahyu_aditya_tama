@@ -74,6 +74,7 @@ function Home() {
           login({
             token: String(token),
             user: {
+              email: user.email,
               firstName: user.firstName,
               lastName: user.lastName,
               profilePhoto: user.profilePhoto,

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 interface InputProps {
   label: string;
-  type: "email" | "password" | "text" | "number";
+  type: "email" | "password" | "text" | "number" | "file";
   required?: boolean;
   leadingIcon?: React.ReactNode;
   trailingIcon?: React.ReactNode;

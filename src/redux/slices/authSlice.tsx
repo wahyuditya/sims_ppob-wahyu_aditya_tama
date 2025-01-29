@@ -4,6 +4,7 @@ interface AuthState {
   token: string | null;
   balance: number | null;
   user: {
+    email: string;
     firstName: string;
     lastName: string;
     profilePhoto: string;

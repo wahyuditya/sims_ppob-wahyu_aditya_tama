@@ -44,12 +44,12 @@ function Button({
         type={type}
         onClick={onClick}
         disabled={disabled}
-        className={`flex justify-center items-center w-full font-medium rounded-sm h-[42px]  ${
+        className={`flex justify-center items-center w-full font-medium rounded-sm h-[42px] cursor-pointer  ${
           disabled
             ? "cursor-not-allowed bg-gray-300 text-gray-400"
             : secondary
             ? "hover:bg-gray-100 border-[#F42619] border-1 bg-white text-[#F42619]"
-            : "hover:bg-[#f42819f3] bg-[#F42619]  text-white cursor-pointer"
+            : "hover:bg-[#f42819f3] bg-[#F42619]  text-white"
         }`}
       >
         {lable}
