@@ -26,7 +26,7 @@ function Akun() {
   const [tempProfileImg, setTempProfileImg] = useState(
     profileImg || "images/Profile-Photo.png"
   );
-  const [tempEmail, setTempEmail] = useState(email);
+
   const [tempFirstName, setTempFirstName] = useState(firstName);
   const [tempLastName, setTempLastName] = useState(lastName);
 
@@ -171,7 +171,7 @@ function Akun() {
               type="text"
               leadingIcon={<FiAtSign />}
               disabled
-              value={tempEmail}
+              value={email}
             />
           </div>
 
@@ -221,6 +221,7 @@ function Akun() {
           </div>
         </div>
       </div>
+      {updateImgProfileError}
     </>
   );
 }
