@@ -75,14 +75,15 @@ function Login() {
     setLoading(false);
   };
 
+  // Close error message
   const handleCloseError = () => {
     setErrorMsg("");
   };
 
   return (
     <>
-      <div className="flex h-[100vh]">
-        <div className="flex flex-col justify-center items-center px-[100px] w-[45%] gap-[40px] ">
+      <div className="flex h-[100vh] max-md:h-full max-md:mt-[80px] ">
+        <div className="flex flex-col justify-center items-center px-[100px] w-[45%] gap-[40px] max-md:w-full max-md:px-[18px] ">
           <div className="flex items-center w-full justify-center gap-[8px]">
             <img src="/images/Logo.png" alt="" />
             <h1 className="font-extrabold">SIMS PPOB</h1>
@@ -138,14 +139,14 @@ function Login() {
           </p>
 
           {errorMsg && (
-            <div className="absolute flex items-center bottom-[20px] w-[540px] px-[18px] py-[8px] rounded-sm mx-30px error px-30px py-8px bg-red-100 text-[#F42619]">
+            <div className="absolute flex items-center bottom-[20px] w-[540px] px-[18px] py-[8px] rounded-sm mx-30px error px-30px py-8px bg-red-100 text-[#F42619] max-md:w-[90%]">
               <p className="w-full">{errorMsg}</p>
               <FiX className="cursor-pointer" onClick={handleCloseError} />
             </div>
           )}
         </div>
 
-        <div className="w-[55%]">
+        <div className="w-[55%] max-md:hidden">
           <img
             className="h-[100vh] w-full object-cover"
             src="/images/illustrasi-Login.png"

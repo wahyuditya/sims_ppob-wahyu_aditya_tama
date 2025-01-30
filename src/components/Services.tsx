@@ -11,10 +11,14 @@ function Services({ service_name, service_icon, onClick }: servicesProps) {
     <>
       <div
         onClick={onClick}
-        className="w-full flex flex-col justify-start items-center"
+        className=" flex flex-col justify-start items-center"
       >
-        <img src={service_icon} alt="" />
-        <p className="text-center">{service_name}</p>
+        <img
+          src={service_icon}
+          alt={service_icon}
+          className="w-[80px] h-[80px] object-contain"
+        />
+        <p className="text-center mt-2 w-[98px]">{service_name}</p>
       </div>
     </>
   );

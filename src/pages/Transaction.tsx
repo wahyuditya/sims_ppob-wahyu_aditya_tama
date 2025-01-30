@@ -4,7 +4,7 @@ import UserInfo from "../components/UserInfo";
 function Transaction() {
   return (
     <>
-      <div className=" flex px-[100px] flex-col gap-[68px] my-[20px]">
+      <div className=" flex px-[100px] flex-col gap-[68px] my-[20px] max-md:px-[18px]">
         <UserInfo />
 
         <div className="flex flex-col gap-[20px]">

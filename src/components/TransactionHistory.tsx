@@ -103,8 +103,8 @@ function transactionHistory() {
                 </div>
               </div>
 
-              <div className="w-full">
-                <p className=" text-right text-[14px] text-gray-500 font-bold">
+              <div className="w-full max-md:w-max">
+                <p className=" text-right text-[14px] text-gray-500 font-bold max-md:text-right">
                   {transaction.description}
                 </p>
               </div>

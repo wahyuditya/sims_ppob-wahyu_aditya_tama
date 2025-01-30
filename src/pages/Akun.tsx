@@ -1,7 +1,7 @@
 import { HiPencil } from "react-icons/hi";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { FiAtSign } from "react-icons/fi";
+import { FiAtSign, FiX } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -135,9 +135,14 @@ function Akun() {
     }
   };
 
+  // Close error message
+  const handleCloseError = () => {
+    setUpdateImgProfileError("");
+  };
+
   return (
     <>
-      <div className="flex px-[300px] flex-col gap-[68px] my-[8px]">
+      <div className="flex px-[300px] flex-col gap-[68px] my-[8px] max-md:px-[18px]">
         <div className="flex justify-center items-center flex-col gap-[8px]">
           <div className="relative inline-block">
             <label htmlFor="profileImgUpdate" className="cursor-pointer">
@@ -220,8 +225,13 @@ function Akun() {
             )}
           </div>
         </div>
+        {updateImgProfileError && (
+          <div className="absolute flex items-center bottom-[20px] w-[540px] px-[18px] py-[8px] rounded-sm mx-30px px-30px py-8px bg-red-100 text-[#F42619] max-md:w-full max-md:relative">
+            <p className="w-full">{updateImgProfileError}</p>
+            <FiX className="cursor-pointer" onClick={handleCloseError} />
+          </div>
+        )}
       </div>
-      {updateImgProfileError}
     </>
   );
 }

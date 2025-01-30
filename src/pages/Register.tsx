@@ -128,6 +128,7 @@ function Register() {
     setLoading(false);
   };
 
+  // close error message
   const handleCloseWarn = () => {
     setErrorMsg("");
     setSuccessMsg("");
@@ -135,8 +136,8 @@ function Register() {
 
   return (
     <>
-      <div className="flex h-[100vh] ">
-        <div className="flex flex-col justify-center px-[100px] w-[45%] gap-[40px]  h-[850px]">
+      <div className="flex h-[100vh] max-md:w-full max-md:mt-[0px]">
+        <div className="flex flex-col justify-center px-[100px] w-[45%] gap-[40px] h-[850px] max-md:w-full max-md:px-[18px]">
           <div className="flex items-center w-full justify-center gap-[8px]">
             <img src="/images/Logo.png" alt="" />
             <h1 className="font-extrabold">SIMS PPOB</h1>
@@ -257,14 +258,14 @@ function Register() {
             </div>
           )}
           {successMsg && (
-            <div className="relative -mx-[30px] bg-red-100 text-[#F42619] p-2 rounded-md flex ">
+            <div className="relative -mx-[30px] bg-red-100 text-[#F42619] p-2 rounded-md flex max-md:w-[90%]">
               <div className="w-full">{successMsg}</div>
               <FiX className="cursor-pointer w-fit" onClick={handleCloseWarn} />
             </div>
           )}
         </div>
 
-        <div className="w-[55%]">
+        <div className="w-[55%] max-md:hidden">
           <img
             className="h-[850px] w-full object-cover"
             src="/images/illustrasi-Login.png"

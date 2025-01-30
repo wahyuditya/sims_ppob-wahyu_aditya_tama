@@ -144,10 +144,10 @@ function Home() {
 
   return (
     <>
-      <div className=" flex px-[100px] flex-col gap-[68px] my-[20px]">
+      <div className=" flex px-[100px] flex-col gap-[68px] my-[20px] max-md:px-[18px] ">
         <UserInfo />
 
-        <div className="flex flex-row gap-[8px] w-full cursor-pointer">
+        <div className="flex flex-row gap-[8px] w-full cursor-pointer scrollbar-hide overflow-x-scroll">
           {services.map((service, index) => (
             <Services
               key={index}
